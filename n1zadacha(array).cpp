@@ -51,7 +51,7 @@ int main()
 		delete[] Y;
 		delete[] P;
 
-	//	cin.get();
+	system("pause");
 	return 0;
 	}
 
