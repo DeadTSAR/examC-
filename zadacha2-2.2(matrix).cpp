@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-void showArray(int **arr, const int col , const int row);
+void showArray(int **arr, const int col, const int row);
 void MatArr(int **arr, int col, int row);
 void transpose(int **arr, int col, int row);
 void fillArr(int **arr, int col, int row);
@@ -22,31 +22,32 @@ int main()
 //col n= 12; n≤12
 //A(m, n)
 
-cout << "...create matrix...\n";
+	cout << "...create matrix...\n";
 	int **matrix = new int*[col];
-/////////////////////
+	/////////////////////
 
 	MatArr(matrix, col, row);
 
-cout << "...subRowArr... " << endl;
+	cout << "...subRowArr... " << endl;
 
 	subRowArr(matrix, col, row);
-///////////////////
-	
-cout << "...del[col]..." << endl;
-		for (int i = 0; i < col; i++)
-		{
-			delete[] matrix[i];
-		}
-cout << "...del[row]..." << endl;
-		delete[] matrix;
+	///////////////////
 
-system("pause");
+	cout << "...del[col]..." << endl;
+	for (int i = 0; i < col; i++)
+	{
+		delete[] matrix[i];
+	}
+	cout << "...del[row]..." << endl;
+	delete[] matrix;
+
+	system("pause");
 	return 0;
 }
 
 void subRowArr(int **arr, int col, int row)
-{	cout << "...pre sorted - subRowArr... " << endl;
+{
+	cout << "...pre sorted - subRowArr... " << endl;
 	showArray(arr, col, row);
 
 	int temp, max_el, min_el;
@@ -66,7 +67,7 @@ void subRowArr(int **arr, int col, int row)
 		}
 		min_el = temp;
 		max_el = temp;
-		
+
 	}
 	cout << "Sorted matrix: " << endl;
 	showArray(arr, col, row);
@@ -103,8 +104,8 @@ void subRowArr(int **arr, int col, int row)
 		arr[saveMaxCOL][saveMaxROW] = temp;
 		cout << "___ max_element <-> min_element ___" << endl;
 	}
-		
-		showArray(arr, col, row);
+
+	showArray(arr, col, row);
 
 }
 void showArray(int **arr, const int col, const int row) {
@@ -113,7 +114,7 @@ void showArray(int **arr, const int col, const int row) {
 	{
 		for (int j = 0; j < row; j++)
 		{
-			cout <<" [." << i <<".]"<<"[."<< j <<".] "<< arr[i][j] << "\t";
+			cout << " [." << i << ".]" << "[." << j << ".] " << arr[i][j] << "\t";
 		}
 		cout << endl;
 	}
@@ -126,7 +127,7 @@ void MatArr(int **arr, int col, int row)
 		arr[i] = new int[row];
 	}
 	fillArr(arr, col, row);
-	
+
 }
 void fillArr(int **arr, int col, int row)
 {
@@ -136,14 +137,14 @@ void fillArr(int **arr, int col, int row)
 		for (int j = 0; j < row; j++)
 		{
 			//arr[i][j]= rand() % 100+2;//
-			cin>>arr[i][j];
+			cin >> arr[i][j];
 		}
 	}
 	showArray(arr, col, row);
-	
+
 }
 void transpose(int ** arr, int col, int row)
-{//либо int matrix[][5], либо int (*matrix)[5]
+{
 	cout << "transpose " << endl;
 	int temp;
 	for (int i = 0; i < col; ++i)
@@ -158,13 +159,13 @@ void transpose(int ** arr, int col, int row)
 	showArray(arr, col, row);
 }
 
-/* 
+/*
 Составить программу, которая в матрице A(m,n), m≤10, n≤12, меняет местами строку,
-содержащую максимальный элемент со строкой, содержащей минимальный элемент. 
+содержащую максимальный элемент со строкой, содержащей минимальный элемент.
 Предполагается, что искомые элементы единственные. Вывести исходную и преобразованную матрицы,
-минимальный и максимальный элементы, а также номера строк, в которых они расположены. 
-Если минимальный и максимальный элементы расположены в одной строке, то поменять местами столбцы, 
-содержащие эти элементы. Следует реализовать ввод исходного массива, вывод требуемого массива и 
-подпрограмму реализации работы с массивом в отдельных функциях, которые должны вызываться в функции main(). 
+минимальный и максимальный элементы, а также номера строк, в которых они расположены.
+Если минимальный и максимальный элементы расположены в одной строке, то поменять местами столбцы,
+содержащие эти элементы. Следует реализовать ввод исходного массива, вывод требуемого массива и
+подпрограмму реализации работы с массивом в отдельных функциях, которые должны вызываться в функции main().
 Выделение памяти под матрицу производится динамически
 */
